@@ -3,13 +3,16 @@ package com.example.fromscratch;
 
 import com.example.fromscratch.model.Greeting;
 import com.example.fromscratch.service.GreetingServiceImpl;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 @RunWith(MockitoJUnitRunner.class)
 public class GreetingServiceImplTest {
     @InjectMocks

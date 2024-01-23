@@ -1,6 +1,6 @@
 package com.example.fromscratch;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -11,7 +11,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -43,6 +44,6 @@ public class GreetingControllerTest {
                                 .param("name", name)
                 )
                 .andExpect(status().isBadRequest())
-                .andExpect(content().string("Greeting text is required"));
+                .andExpect(jsonPath("$.message", equalTo("Greeting text is required")));
     }
 }
