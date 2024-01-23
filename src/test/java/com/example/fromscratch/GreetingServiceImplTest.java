@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(MockitoJUnitRunner.class)
-public class GreetingServiceImplTest {
+class GreetingServiceImplTest {
     @InjectMocks
     private GreetingServiceImpl greetingService;
 
@@ -31,9 +31,7 @@ public class GreetingServiceImplTest {
     @Test
     public void testGreetingWithEmptyGreetingText() {
         final String name = "";
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-           greetingService.sayGreeting(name);
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> greetingService.sayGreeting(name));
 
         assertEquals("Greeting text is required", exception.getMessage());
     }
